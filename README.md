@@ -2,6 +2,8 @@
 
 This project demonstrates the problem described in [this blog post](https://frostillic.us/blog/posts/2021/11/30/journeys-debugging-open-liberty-and-mvc) and [this issue](https://github.com/eclipse-ee4j/krazo/issues/282): namely, that Krazo's Servlet-based view engine fails on recent Open Liberty builds.
 
+This can be observed by executing `mvn liberty:run` in the project directory.
+
 The core trouble is that Liberty's dispatcher expects an `IExtendedRequest`, but Krazo is given a proxy object from RESTEasy (replacing CXF in recent Liberty) that dos not wrap that request in the official way.
 
 This problem can be worked around using a local build of Krazo that changes the end of `ServletViewEngine` to retrieve the `IExtendedRequest` that Liberty wants reflectively:
