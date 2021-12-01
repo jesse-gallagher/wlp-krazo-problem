@@ -1,0 +1,17 @@
+<server description="Example Server">
+
+    <!-- Enable features -->
+    <featureManager>
+        <feature>beanValidation-3.0</feature>
+        <feature>cdi-3.0</feature>
+        <feature>expressionLanguage-4.0</feature>
+        <feature>pages-3.0</feature>
+        <feature>restfulWS-3.0</feature>
+        <feature>servlet-5.0</feature>
+    </featureManager>
+
+    <!-- To access this server from a remote client add a host attribute to the following element, e.g. host="*" -->
+    <httpEndpoint httpPort="9080" httpsPort="9443" id="defaultHttpEndpoint"/>
+
+    <webApplication location="wlp-krazo-problem.war" contextRoot="/" />
+</server>
